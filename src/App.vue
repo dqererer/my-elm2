@@ -1,13 +1,15 @@
 <template>
   <div id="app">
     <el-container>
-      <el-header>Header</el-header>
+      <el-header>饿了么管理系统</el-header>
       <el-container>
         <el-aside width="150px">
           <Menu/>
         </el-aside>
         <el-main>
-          <List/>
+          <!-- <List/>
+          <New/> -->
+          <router-view/>
         </el-main>
       </el-container>
     </el-container>
@@ -17,12 +19,14 @@
 
 <script>
 import Menu from './components/Menu.vue'
-import List from './components/List.vue'
+// import List from './components/List.vue'
+// import New from './components/New.vue'
 export default {
   name: 'App',
   components: {
     Menu,
-    List
+    // List,
+    // New
   }
 }
 </script>
@@ -43,7 +47,7 @@ export default {
   .el-main {
     background-color: #E9EEF3;
     color: #333;
-    text-align: center;
+    text-align: left;
   }
   
   body > .el-container {
