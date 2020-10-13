@@ -1,14 +1,12 @@
 <template>
   <div id="app">
     <el-container>
-      <el-header>饿了么管理系统</el-header>
+      <el-header>1234567系统</el-header>
       <el-container>
         <el-aside width="150px">
           <Menu/>
         </el-aside>
         <el-main>
-          <!-- <List/>
-          <New/> -->
           <router-view/>
         </el-main>
       </el-container>

@@ -5,6 +5,10 @@ import VueRouter from 'vue-router';
 // 可以从其他文件 import 进来
 import List from './List';
 import New from './New';
+import WatchRoute from './watch-route';
+import One from './1';
+import Two from './2';
+import Three from './3';
 
 Vue.use(VueRouter);
 // 2. 定义路由
@@ -15,6 +19,18 @@ Vue.use(VueRouter);
 const routes = [
   { path: '/list', component: List ,name:"List"},
   { path: '/new', component: New ,name:"New"},
+  { path: '/WatchRoute', component: WatchRoute, name:"WatchRoute",children:[
+    {
+      path: '/1', component: One ,name:"New1"
+    },
+    {
+      path: '/2', component: Two ,name:"New2"
+    },
+    {
+      path: '/3', component: Three ,name:"New3"
+    }
+  ]
+  },
 ]
 
 // 3. 创建 router 实例，然后传 `routes` 配置

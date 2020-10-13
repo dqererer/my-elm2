@@ -22,6 +22,12 @@
               <span slot="title">新建预约</span>
             </el-menu-item>
           </router-link>
+          <router-link to="/WatchRoute">
+            <el-menu-item index="3">
+              <i class="el-icon-setting"></i>
+              <span slot="title">watch-router</span>
+              </el-menu-item>
+          </router-link> 
         </el-menu>
       </el-col>
     </el-row>

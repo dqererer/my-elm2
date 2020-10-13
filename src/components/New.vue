@@ -9,16 +9,16 @@
         <el-form-item label="手机号码" prop="phone">
           <el-input v-model="ruleForm.phone" placeholder="请输入手机号码" size="medium"></el-input>
         </el-form-item>
-        <el-form-item label="开始时间" >
+        <el-form-item label="开始时间"  prop="date_start">
           <el-date-picker
-            v-model="date_start"
+            v-model="ruleForm.date_start"
             type="date"
             placeholder="选择开始日期">
           </el-date-picker>
         </el-form-item>
-        <el-form-item label="结束时间" >
+        <el-form-item label="结束时间" prop="date_end" >
           <el-date-picker
-            v-model="date_end"
+            v-model="ruleForm.date_end"
             type="date"
             placeholder="选择结束日期">
           </el-date-picker>
@@ -48,6 +48,7 @@
         <el-form-item>
           <el-button type="primary" icon="el-icon-plus" @click="submitForm('ruleForm')">立即创建</el-button>
           <el-button @click="resetForm('ruleForm')">重置</el-button>
+          <a href="" download=''>下载</a>
         </el-form-item>
       </el-form>
     </div>
@@ -64,6 +65,19 @@ export default {
       } 
       callback();
     };
+    var startCheck = (rule, value, callback) => {
+      if(this.ruleForm.date_end && value >= this.ruleForm.date_end){ 
+        callback(new Error('开始时间不能早于结束时间'));
+      } 
+      callback();
+    };
+    var endCheck = (rule, value, callback) => {
+      if(this.ruleForm.date_start && this.ruleForm.date_start >= value){
+        console.log('进来了') 
+        callback(new Error('开始时间不能早于结束时间'));
+      } 
+      callback();
+    };
     return{
       ruleForm: {
         name: '大头鹅',
@@ -74,8 +88,9 @@ export default {
         resource: '',
         desc: '',
         date_start: "",
-        date_end: ""
+        date_end: "",
       },
+
       rules: {
         // name: [
         //   { required: true, message: '请输入活动名称', trigger: 'blur' },
@@ -100,12 +115,19 @@ export default {
         // desc: [
         //   { required: true, message: '请填写活动形式', trigger: 'blur' }
         // ]
+        date_start: [
+          { required: true, message:'请选择开始时间',trigger:'blur'},
+          { validator: startCheck, message: '开始时间不能晚于结束时间', trigger: 'blur' },          
+        ],
+        date_end: [
+          { required: true, message:'请选择结束时间',trigger:'blur'},
+          { validator: endCheck, message: '结束时间不能早于开始时间', trigger: 'blur' }
+        ],
       },
-    }
-  },
-  props: {
-
-  },
+      // date_start: "",
+      // date_end: "",
+  }
+},
   methods:{
     submitForm(formName) {
       this.$refs[formName].validate((valid) => {
