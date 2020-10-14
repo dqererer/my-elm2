@@ -9,9 +9,7 @@ export default {
   methods: {
 
   },
-   mounted: function(){
-    alert(2);
-  }
+
 };
 </script>
 <style scoped>

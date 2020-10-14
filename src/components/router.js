@@ -21,13 +21,13 @@ const routes = [
   { path: '/new', component: New ,name:"New"},
   { path: '/WatchRoute', component: WatchRoute, name:"WatchRoute",children:[
     {
-      path: '/1', component: One ,name:"New1"
+      path: '/WatchRoute/1', component: One ,name:"New1"
     },
     {
-      path: '/2', component: Two ,name:"New2"
+      path: '/WatchRoute/2', component: Two ,name:"New2"
     },
     {
-      path: '/3', component: Three ,name:"New3"
+      path: '/WatchRoute/3', component: Three ,name:"New3"
     }
   ]
   },

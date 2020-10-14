@@ -9,7 +9,10 @@
     <section>
       <p>new plan</p>
       <ul class="greater" v-for="(i,text) in list2" v-bind:key="text">
-        <router-link :to='{ path:"/WatchRoute/"+(text+1)}'>{{i.text}}</router-link>
+        <li :class="{cur:text==curID2}">
+        <!-- <li class="cur">  -->
+          <router-link :to='{ path:"/WatchRoute/"+(text+1)}'>{{i.text}}</router-link>
+        </li>
       </ul>
     </section>
     <section>
@@ -59,11 +62,14 @@ export default {
           // isCur:false
         }
       ],
-      curID: 100
+      curID: 100,
+      curID2: 100
     };
   },
   watch: {
-    
+    $route: function(newVal){
+      this.curID2 = newVal.path.charAt(newVal.path.length-1);
+    }
   },
   methods: {
     setCur: function(i) {
@@ -80,7 +86,7 @@ export default {
   display: flex;
   justify-content: space-between;
 }
-li , a {
+li{
   display: block;
   width: 6rem;
   height: 2rem;
