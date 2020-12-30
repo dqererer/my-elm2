@@ -68,15 +68,17 @@ export default {
   },
   watch: {
     $route: function(newVal){
-      this.curID2 = newVal.path.charAt(newVal.path.length-1);
+      this.curID2 = newVal.path.charAt(newVal.path.length-1) - 1;
     }
+  },
+  created: function(){
+    let path = this.$route.path;
+    let curHash = path.charAt(path.length - 1);
+    this.curID2 = curHash -1;
   },
   methods: {
     setCur: function(i) {
       this.curID = i;
-    },
-    toggle: function(){
-
     },
   }
 };

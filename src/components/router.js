@@ -6,9 +6,11 @@ import VueRouter from 'vue-router';
 import List from './List';
 import New from './New';
 import WatchRoute from './watch-route';
+import Node from './node';
 import One from './1';
 import Two from './2';
 import Three from './3';
+import EChart from './echart';
 
 Vue.use(VueRouter);
 // 2. 定义路由
@@ -17,20 +19,23 @@ Vue.use(VueRouter);
 // 或者，只是一个组件配置对象。
 // 我们晚点再讨论嵌套路由。
 const routes = [
-  { path: '/list', component: List ,name:"List"},
-  { path: '/new', component: New ,name:"New"},
-  { path: '/WatchRoute', component: WatchRoute, name:"WatchRoute",children:[
-    {
-      path: '/WatchRoute/1', component: One ,name:"New1"
-    },
-    {
-      path: '/WatchRoute/2', component: Two ,name:"New2"
-    },
-    {
-      path: '/WatchRoute/3', component: Three ,name:"New3"
-    }
-  ]
+  { path: '/list', component: List, name: "List" },
+  { path: '/new', component: New, name: "New" },
+  {
+    path: '/WatchRoute', component: WatchRoute, name: "WatchRoute", children: [
+      {
+        path: '/WatchRoute/1', component: One, name: "New1"
+      },
+      {
+        path: '/WatchRoute/2', component: Two, name: "New2"
+      },
+      {
+        path: '/WatchRoute/3', component: Three, name: "New3"
+      }
+    ]
   },
+  { path: '/node', component: Node, name: 'Node' },
+  { path: '/echart', component: EChart, name: "EChart" },
 ]
 
 // 3. 创建 router 实例，然后传 `routes` 配置

@@ -7,6 +7,11 @@ import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import VueRouter from 'vue-router'
 
+import echarts from 'echarts'
+
+console.log('----',echarts)
+Vue.prototype.$echarts = echarts;
+
 // Vue.prototype.$http = axios
 Vue.use(VueRouter)
 Vue.use(VueAxios, axios);

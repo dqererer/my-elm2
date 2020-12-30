@@ -28,6 +28,18 @@
               <span slot="title">watch-router</span>
               </el-menu-item>
           </router-link> 
+          <router-link to="/node">
+            <el-menu-item index="5">
+              <i class="el-icon-setting"></i>
+              <span slot="title">node</span>
+              </el-menu-item>
+          </router-link> 
+          <router-link to="/EChart">
+            <el-menu-item index="4">
+              <i class="el-icon-setting"></i>
+              <span slot="title">EChart</span>
+              </el-menu-item>
+          </router-link> 
         </el-menu>
       </el-col>
     </el-row>
